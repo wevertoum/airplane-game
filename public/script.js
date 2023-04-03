@@ -8,8 +8,6 @@ const {
 window.addEventListener("load", () => {
   document.body.classList.add("scrolling");
 });
-
 gameContainer.addEventListener("mousemove", moveAirPlane);
-
 gameContainer.addEventListener("collision", onColideShotWithEnemy);
 gameContainer.addEventListener("mousedown", onMouseClickShot);

@@ -16,6 +16,10 @@ const startCreateEnemies = () => {
       top += 2;
       enemy.style.top = top + "px";
 
+      if (!gameContainer.contains(enemy)) {
+        return;
+      }
+
       if (top > window.innerHeight) {
         gameContainer.removeChild(enemy);
         cancelAnimationFrame(animationId);
