@@ -1,3 +1,5 @@
+const airplaneFunctions = require("./functions/airplaneFunctions.js");
+
 const player = document.getElementById("player");
 const container = document.getElementById("game-container");
 const welcomeMessage = document.getElementById("welcome-message");
@@ -16,16 +18,6 @@ container.addEventListener("mousemove", (e) => {
   player.style.top = y - player.offsetHeight / 2 + 20 + "px";
 });
 
-function playShotSound() {
-  const audioShot = new Audio("assets/sounds/player_shot.wav");
-  audioShot.play();
-}
-
-function playShotBoomSound() {
-  const audioShot = new Audio("assets/sounds/enemy_boom.wav");
-  audioShot.play();
-}
-
 function checkCollision(laser, enemy) {
   const laserRect = laser.getBoundingClientRect();
   const enemyRect = enemy.getBoundingClientRect();
@@ -38,7 +30,7 @@ function checkCollision(laser, enemy) {
 }
 
 function createExplosion(x, y) {
-  playShotBoomSound();
+  airplaneFunctions.playShotBoomSound();
   const explosion = document.createElement("img");
   explosion.src = "assets/images/explosion.gif";
   explosion.className = "explosion";
@@ -95,7 +87,10 @@ function startCreatingEnemies() {
   }, 1000);
 }
 
+console.log("estou aqui no client side script");
+
 container.addEventListener("mousedown", (e) => {
+  console.log("estou aqui no mousedown");
   if (!isGameStarted) {
     startCreatingEnemies();
     const body = document.querySelector("body");
@@ -104,7 +99,7 @@ container.addEventListener("mousedown", (e) => {
     isGameStarted = true;
   }
 
-  playShotSound();
+  airplaneFunctions.playShotSound();
 
   const laser = document.createElement("div");
   laser.classList.add("laser");
