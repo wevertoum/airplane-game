@@ -71,7 +71,7 @@ body {
 .laser {
   width: 30px;
   height: 15px;
-  background-color: rgb(232, 248, 5);
+  background-color: rgb(255, 0, 0);
   position: absolute;
   border-radius: 10px 0px 0px 10px;
 }
